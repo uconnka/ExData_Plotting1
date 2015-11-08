@@ -1,19 +1,16 @@
+################################
+## Plot1: Global Active Power ##
+################################
 
-#code for reading the data 
-infile<-read.table("household_power_consumption.txt", header = TRUE, sep=";", na.strings = "?")
+png(file = "plot1.png")
+#pdf(file = "plot1.pdf")
 
-infile_subset <- subset(infile, as.Date(Date, "%d/%m/%Y") >= "2007-02-01" & as.Date(Date, "%d/%m/%Y") <= "2007-02-02")
+#elcty = read.table("Project1_subset.txt", sep=";",col.names=TRUE)
+#file1<-elcty[(elcty$Date=="1/2/2007" | elcty$Date=="2/2/2007"),]
 
+elcty = read.table("Project1_subset.txt", sep=";", skip=1)
+file1<-elcty[(elcty$V1=="1/2/2007" | elcty$V1=="2/2/2007"),]
 
+hist(file1$V3,col="red",main="Global Active Power",xlab="Global Active Power (kilowatts)")
 
-
-# code that creates the PNG file
-png(file="plot1.png")
-
-# code that creates the histogram
-hist(infile_subset$Global_active_power, main="Global Active Power",xlab="Global Active Power (kilowatts)",col="Red",ylim = c(0, 1200))
-
-# code that switches the png device off
-dev.off()
-
-
+dev.off() ## Close the PDF file device

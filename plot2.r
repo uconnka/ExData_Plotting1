@@ -1,3 +1,8 @@
+########################################
+## Plot2: Global Active Power Vs Days ##
+########################################
+
+
 # code for reading the data 
 infile<-read.table("household_power_consumption.txt", header = TRUE, sep=";", na.strings = "?")
 
