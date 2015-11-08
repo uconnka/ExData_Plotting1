@@ -13,6 +13,9 @@ new$DT <- strptime(paste(new$Date, new$Time), format="%d/%m/%Y %H:%M:%S")
 # Code that creates the PNG file
 png(file="plot4.png")
 
+par(mfrow=c(2,2))
+
+
 # sub-plot 1
 plot(new$DT,new$Global_active_power,type="l",ylab="Global Active Power (Kilowatts)",xlab=" ")
 
